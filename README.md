@@ -1,0 +1,1 @@
+CareerFlow — персональная CRM для поиска работы. Стек: React + FastAPI.
