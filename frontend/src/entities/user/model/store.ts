@@ -1,9 +1,13 @@
 import { create } from 'zustand'
 
 export interface User {
-    id: string
-    email: string
-    full_name: string | null
+  id: string
+  email: string
+  last_name: string | null
+  first_name: string | null
+  patronymic: string | null
+  phone: string | null
+  full_name: string
 }
 
 interface UserState {

@@ -5,6 +5,7 @@ from pydantic import BaseModel, ConfigDict
 
 from app.models.job import JobStatus, JobPriority
 
+
 class JobBase(BaseModel):
     company: str
     position: str
@@ -16,7 +17,7 @@ class JobBase(BaseModel):
     status: JobStatus = JobStatus.wishlist
     priority: JobPriority = JobPriority.medium
     tags: list[str] = []
-    motes: str | None = None
+    notes: str | None = None
 
 
 class JobCreate(JobBase):
@@ -31,9 +32,10 @@ class JobUpdate(BaseModel):
     remote: bool | None = None
     link: str | None = None
     applied_date: date | None = None
+    status: JobStatus | None = None
     priority: JobPriority | None = None
     tags: list[str] | None = None
-    motes: str | None = None
+    notes: str | None = None
 
 
 class JobRead(JobBase):
@@ -41,4 +43,4 @@ class JobRead(JobBase):
 
     id: uuid.UUID
     created_at: datetime
-    update_at: datetime
+    updated_at: datetime

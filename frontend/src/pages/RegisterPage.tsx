@@ -4,7 +4,7 @@ import { RegisterForm } from '@/features/auth/register/RegisterForm'
 export function RegisterPage(){
     return(
         <div className='flex min-h-screen items-center justify-center bg-muted/30 px-4'>
-            <div className='w-full max-w-sm space-y-6 rounded-xl border bg-background p-8 shadow-sm'>
+            <div className="w-full max-w-md space-y-6 rounded-xl border bg-background p-8 shadow-sm">
             <div className='space-y-1 text-center'>
                 <h1 className='text-xl font-semibold tracking-tight'>Создайте свою учетную запись</h1>
                 <p className='text-sm text-muted-foreground'>Начните отслеживать свой поиск работы</p>

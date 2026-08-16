@@ -5,8 +5,13 @@ export interface LoginPayload {
     password: string
 }
 
-export interface RegisterPayload extends LoginPayload{
-    full_name?: string
+export interface RegisterPayload {
+  email: string
+  password: string
+  last_name: string
+  first_name: string
+  patronymic?: string
+  phone?: string
 }
 
 interface TokenResponse {
@@ -26,7 +31,6 @@ export async function loginRequest(payload: LoginPayload): Promise<TokenResponse
 }
 
 export async function registerRequest(payload: RegisterPayload) {
-    const { data } = await api.post('api/v1/auth/login', payload )
-    
-    return data
+  const { data } = await api.post('api/v1/auth/register', payload)
+  return data
 }
