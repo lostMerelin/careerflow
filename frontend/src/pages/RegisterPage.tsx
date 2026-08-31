@@ -7,7 +7,7 @@ export function RegisterPage(){
             <div className="w-full max-w-md space-y-6 rounded-xl border bg-background p-8 shadow-sm">
             <div className='space-y-1 text-center'>
                 <h1 className='text-xl font-semibold tracking-tight'>Создайте свою учетную запись</h1>
-                <p className='text-sm text-muted-foreground'>Начните отслеживать свой поиск работы</p>
+                <p className='text-sm text-muted-foreground'>Начните отслеживать поиск работы</p>
             </div>
             <RegisterForm />
             <p className='text-center text-sm text-muted-foreground'>

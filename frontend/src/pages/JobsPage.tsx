@@ -14,7 +14,7 @@ export function JobsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Вакансии</h1>
-          <p className="mt-1 text-muted-foreground">Отслеживайте каждое приложение в одном месте</p>
+          <p className="mt-1 text-muted-foreground">Отслеживайте каждое предложение в одном месте.</p>
         </div>
         <div className="flex items-center gap-3">
           <Tabs value={view} onValueChange={(v) => setView(v as 'table' | 'kanban')}>

@@ -1,21 +1,24 @@
 import { api } from '@/shared/api/axios'
 import type { Interview, InterviewInput } from '../model/types'
 
-export async function fetchCompanies(): Promise<Interview[]> {
-  const { data } = await api.get<Interview[]>('/api/v1/companies')
+export async function fetchInterviews(): Promise<Interview[]> {
+  const { data } = await api.get<Interview[]>('/api/v1/interviews')
   return data
 }
 
-export async function createCompany(payload: InterviewInput): Promise<Interview> {
-  const { data } = await api.post<Interview>('/api/v1/companies', payload)
+export async function createInterview(payload: InterviewInput): Promise<Interview> {
+  const { data } = await api.post<Interview>('/api/v1/interviews', payload)
   return data
 }
 
-export async function updateCompany(id: string, payload: Partial<InterviewInput>): Promise<Interview> {
-  const { data } = await api.patch<Interview>(`/api/v1/companies/${id}`, payload)
+export async function updateInterview(
+  id: string,
+  payload: Partial<InterviewInput>,
+): Promise<Interview> {
+  const { data } = await api.patch<Interview>(`/api/v1/interviews/${id}`, payload)
   return data
 }
 
-export async function deleteCompany(id: string): Promise<void> {
-  await api.delete(`/api/v1/companies/${id}`)
+export async function deleteInterview(id: string): Promise<void> {
+  await api.delete(`/api/v1/interviews/${id}`)
 }

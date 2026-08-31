@@ -11,8 +11,8 @@ import { useUserStore } from '@/entities/user/model/store'
 import { loginRequest } from '../api/authApi'
 
 const loginSchema = z.object({
-  email: z.string().email('Enter a valid email'),
-  password: z.string().min(1, 'Password is required'),
+  email: z.string().email('Введите корректный email'),
+  password: z.string().min(1, 'Введите пароль'),
 })
 
 type LoginFormValues = z.infer<typeof loginSchema>
@@ -33,10 +33,10 @@ export function LoginForm() {
       tokenStorage.set(access_token)
       const { data: user } = await api.get('/api/v1/auth/me')
       setUser(user)
-      toast.success('Welcome back!')
+      toast.success('С возвращением!')
       navigate('/dashboard')
     } catch {
-      toast.error('Invalid email or password')
+      toast.error('Неверный email или пароль')
     }
   }
 
@@ -53,7 +53,7 @@ export function LoginForm() {
         {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? 'Signing in...' : 'Sign in'}
+        {isSubmitting ? 'Вход...' : 'Войти'}
       </Button>
     </form>
   )

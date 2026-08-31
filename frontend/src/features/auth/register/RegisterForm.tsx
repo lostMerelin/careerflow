@@ -13,16 +13,16 @@ import { loginRequest, registerRequest } from '../api/authApi'
 
 const registerSchema = z
   .object({
-    lastName: z.string().min(1, 'Required'),
-    firstName: z.string().min(1, 'Required'),
+    lastName: z.string().min(1, 'Обязательное поле'),
+    firstName: z.string().min(1, 'Обязательное поле'),
     patronymic: z.string().optional(),
-    email: z.string().email('Enter a valid email'),
+    email: z.string().email('Введите корректный email'),
     phone: z.string().optional(),
-    password: z.string().min(8, 'At least 8 characters'),
-    confirmPassword: z.string().min(1, 'Please confirm your password'),
+    password: z.string().min(8, 'Минимум 8 символов'),
+    confirmPassword: z.string().min(1, 'Подтвердите пароль'),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
+    message: 'Пароли не совпадают',
     path: ['confirmPassword'],
   })
 
@@ -94,7 +94,7 @@ export function RegisterForm() {
 
       <div className="space-y-1.5">
         <Label>Телефон</Label>
-        <Input type="tel" placeholder="+7 999 111 11 11" {...register('phone')} />
+        <Input type="tel" placeholder="+7 900 123-45-67" {...register('phone')} />
       </div>
 
       <div className="grid grid-cols-2 gap-3">
@@ -115,7 +115,7 @@ export function RegisterForm() {
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? 'Создание аккаунта...' : 'Создать учетную запись'}
+        {isSubmitting ? 'Создание аккаунта...' : 'Зарегистрироваться'}
       </Button>
     </form>
   )

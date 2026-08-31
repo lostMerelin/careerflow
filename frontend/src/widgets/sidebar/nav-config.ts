@@ -22,18 +22,18 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboard },
-  { title: 'Jobs', url: '/jobs', icon: Briefcase },
-  { title: 'Companies', url: '/companies', icon: Building2 },
-  { title: 'Interviews', url: '/interviews', icon: CalendarClock },
-  { title: 'Resume', url: '/resume', icon: FileText },
-  { title: 'Cover Letters', url: '/cover-letters', icon: Mail },
-  { title: 'Tasks', url: '/tasks', icon: CheckSquare },
-  { title: 'Calendar', url: '/calendar', icon: Calendar },
-  { title: 'Analytics', url: '/analytics', icon: BarChart3 },
-  { title: 'Notes', url: '/notes', icon: StickyNote },
+  { title: 'Вакансии', url: '/jobs', icon: Briefcase },
+  { title: 'Компании', url: '/companies', icon: Building2 },
+  { title: 'Собеседования', url: '/interviews', icon: CalendarClock },
+  { title: 'Резюме', url: '/resume', icon: FileText },
+  { title: 'Сопроводительное письмо', url: '/cover-letters', icon: Mail },
+  { title: 'Задачи', url: '/tasks', icon: CheckSquare },
+  { title: 'Календарь', url: '/calendar', icon: Calendar },
+  { title: 'Аналитика', url: '/analytics', icon: BarChart3 },
+  { title: 'Заметки', url: '/notes', icon: StickyNote },
 ]
 
 export const bottomNavItems: NavItem[] = [
-  { title: 'Profile', url: '/profile', icon: User },
-  { title: 'Settings', url: '/settings', icon: Settings },
+  { title: 'Профиль', url: '/profile', icon: User },
+  { title: 'Настройки', url: '/settings', icon: Settings },
 ]
