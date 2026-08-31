@@ -32,7 +32,7 @@ export function KanbanCard({job} : KanbanCardProps) {
                 {job.salary && <span className="text-xs text-muted-foreground">{job.salary}</span>}
                 {job.priority === 'high' && (
                     <Badge variant="secondary" className="bg-red-100 text-[10px] text-red-700">
-                        High
+                        Высокий
                     </Badge>
                 )}
             </div>

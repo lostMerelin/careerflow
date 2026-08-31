@@ -15,7 +15,7 @@ export function InterviewsList({ interviews }: InterviewsListProps) {
   if (interviews.length === 0) {
     return (
       <div className="rounded-lg border p-12 text-center text-muted-foreground">
-        No interviews scheduled yet.
+        Пока нет запланированных собеседований.
       </div>
     )
   }
@@ -43,14 +43,14 @@ export function InterviewsList({ interviews }: InterviewsListProps) {
               <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <CalendarClock className="h-3 w-3" />
-                  {date.toLocaleString(undefined, {
+                  {date.toLocaleString('ru-RU', {
                     dateStyle: 'medium',
                     timeStyle: 'short',
                   })}
                 </span>
                 <span className="flex items-center gap-1">
                   <MapPin className="h-3 w-3" />
-                  {interview.type === 'online' ? 'Online' : 'Offline'}
+                  {interview.type === 'online' ? 'Онлайн' : 'Оффлайн'}
                 </span>
                 {interview.interviewer && (
                   <span className="flex items-center gap-1">

@@ -27,8 +27,8 @@ import { useCreateJob } from '@/entities/job/api/queries'
 import { statusConfig, statusOrder } from '@/entities/job/config/statusConfig'
 
 const jobSchema = z.object({
-  company: z.string().min(1, 'Company is required'),
-  position: z.string().min(1, 'Position is required'),
+  company: z.string().min(1, 'Укажите компанию'),
+  position: z.string().min(1, 'Укажите должность'),
   salary: z.string().optional(),
   location: z.string().optional(),
   link: z.string().optional(),
@@ -66,11 +66,11 @@ export function CreateJobDialog() {
   const onSubmit = async (values: JobFormValues) => {
     try {
       await createJob.mutateAsync(values)
-      toast.success('Job added')
+      toast.success('Вакансия добавлена')
       reset()
       setOpen(false)
     } catch {
-      toast.error('Could not add job')
+      toast.error('Не удалось добавить вакансию')
     }
   }
 
@@ -78,23 +78,23 @@ export function CreateJobDialog() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={<Button />}>
         <Plus className="mr-2 h-4 w-4" />
-        New Job
+        Новая вакансия
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add a job</DialogTitle>
+          <DialogTitle>Добавить вакансию</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Company</Label>
+              <Label>Компания</Label>
               <Input {...register('company')} />
               {errors.company && (
                 <p className="text-sm text-destructive">{errors.company.message}</p>
               )}
             </div>
             <div className="space-y-1.5">
-              <Label>Position</Label>
+              <Label>Должность</Label>
               <Input {...register('position')} />
               {errors.position && (
                 <p className="text-sm text-destructive">{errors.position.message}</p>
@@ -103,20 +103,20 @@ export function CreateJobDialog() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Salary</Label>
-              <Input placeholder="$80k - $100k" {...register('salary')} />
+              <Label>Зарплата</Label>
+              <Input placeholder="150 000 - 200 000 ₽" {...register('salary')} />
             </div>
             <div className="space-y-1.5">
-              <Label>Location</Label>
-              <Input placeholder="Amsterdam" {...register('location')} />
+              <Label>Локация</Label>
+              <Input placeholder="Москва" {...register('location')} />
             </div>
           </div>
           <div className="space-y-1.5">
-            <Label>Job link</Label>
+            <Label>Ссылка на вакансию</Label>
             <Input placeholder="https://..." {...register('link')} />
           </div>
           <div className="space-y-1.5">
-            <Label>Status</Label>
+            <Label>Статус</Label>
             <Controller
               control={control}
               name="status"
@@ -137,12 +137,12 @@ export function CreateJobDialog() {
             />
           </div>
           <div className="space-y-1.5">
-            <Label>Notes</Label>
+            <Label>Заметки</Label>
             <Textarea rows={3} {...register('notes')} />
           </div>
           <DialogFooter>
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Adding...' : 'Add job'}
+              {isSubmitting ? 'Добавление...' : 'Добавить вакансию'}
             </Button>
           </DialogFooter>
         </form>

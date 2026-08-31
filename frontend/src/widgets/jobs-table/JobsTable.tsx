@@ -38,15 +38,15 @@ export function JobsTable({ jobs }: JobsTableProps) {
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Company
+          Компания
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       ),
     },
-    { accessorKey: 'position', header: 'Position' },
+    { accessorKey: 'position', header: 'Должность' },
     {
       accessorKey: 'status',
-      header: 'Status',
+      header: 'Статус',
       cell: ({ row }) => {
         const status = row.original.status
         return (
@@ -58,18 +58,18 @@ export function JobsTable({ jobs }: JobsTableProps) {
     },
     {
       accessorKey: 'salary',
-      header: 'Salary',
+      header: 'Зарплата',
       cell: ({ row }) => row.original.salary ?? '—',
     },
     {
       accessorKey: 'location',
-      header: 'Location',
+      header: 'Локация',
       cell: ({ row }) => row.original.location ?? '—',
     },
     {
       accessorKey: 'remote',
-      header: 'Remote',
-      cell: ({ row }) => (row.original.remote ? 'Yes' : 'No'),
+      header: 'Удаленно',
+      cell: ({ row }) => (row.original.remote ? 'Да' : 'Нет'),
     },
     {
       id: 'actions',
@@ -125,7 +125,7 @@ const table = useReactTable({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center text-muted-foreground">
-                No jobs yet. Add your first one!
+                Пока нет вакансий. Добавьте первую!
               </TableCell>
             </TableRow>
           )}

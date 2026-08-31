@@ -27,10 +27,10 @@ import { useCreateInterview } from '@/entities/interview/api/queries'
 import { stageLabels } from '@/entities/interview/config/labels'
 
 const interviewSchema = z.object({
-  company: z.string().min(1, 'Company is required'),
+  company: z.string().min(1, 'Укажите компанию'),
   position: z.string().optional(),
-  date: z.string().min(1, 'Date is required'),
-  time: z.string().min(1, 'Time is required'),
+  date: z.string().min(1, 'Укажите дату'),
+  time: z.string().min(1, 'Укажите время'),
   type: z.enum(['online', 'offline']),
   meetingLink: z.string().optional(),
   stage: z.enum(['hr', 'technical', 'final']),
@@ -67,11 +67,11 @@ export function CreateInterviewDialog() {
         interviewer: values.interviewer || undefined,
         notes: values.notes || undefined,
       })
-      toast.success('Interview scheduled')
+      toast.success('Собеседование запланировано')
       reset()
       setOpen(false)
     } catch {
-      toast.error('Could not schedule interview')
+      toast.error('Не удалось запланировать собеседование')
     }
   }
 
@@ -172,7 +172,7 @@ export function CreateInterviewDialog() {
 
           <DialogFooter>
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Scheduling...' : 'Schedule'}
+              {isSubmitting ? 'Планирование...' : 'Запланировать'}
             </Button>
           </DialogFooter>
         </form>
