@@ -79,7 +79,7 @@ export function CreateInterviewDialog() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={<Button />}>
         <Plus className="mr-2 h-4 w-4" />
-        New Interview
+        Новое собеседование
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
