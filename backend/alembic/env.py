@@ -20,6 +20,8 @@ from app.db.base import Base
 import app.models.user
 import app.models.job
 import app.models.company 
+import app.models.interview
+import app.models.task
 
 config.set_main_option("sqlalchemy.url", settings.database_url)
 
