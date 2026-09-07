@@ -13,6 +13,7 @@ import { TasksPage } from '@/pages/TasksPage'
 import { CalendarPage } from '@/pages/CalendarPage'
 import { AnalyticsPage } from '@/pages/AnalyticsPage'
 import { NotesPage } from '@/pages/NotesPage'
+import { NoteEditorPage } from '@/pages/NoteEditorPage'
 import { ProfilePage } from '@/pages/ProfilePage'
 import { SettingsPage } from '@/pages/SettingsPage'
 
@@ -38,6 +39,7 @@ export const router = createBrowserRouter([
           { path: 'calendar', element: <CalendarPage /> },
           { path: 'analytics', element: <AnalyticsPage /> },
           { path: 'notes', element: <NotesPage /> },
+          { path: 'notes/:id', element: <NoteEditorPage /> },
           { path: 'profile', element: <ProfilePage /> },
           { path: 'settings', element: <SettingsPage /> },
         ],
