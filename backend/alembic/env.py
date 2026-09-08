@@ -22,6 +22,7 @@ import app.models.job
 import app.models.company 
 import app.models.interview
 import app.models.task
+import app.models.note 
 
 config.set_main_option("sqlalchemy.url", settings.database_url)
 

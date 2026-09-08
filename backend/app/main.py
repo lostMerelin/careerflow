@@ -6,6 +6,7 @@ from app.api.v1.jobs import router as jobs_router
 from app.api.v1.companies import router as companies_router
 from app.api.v1.interviews import router as interviews_router
 from app.api.v1.tasks import router as tasks_router
+from app.api.v1.notes import router as notes_router
 
 app = FastAPI(title="CareerFlow API")
 
@@ -22,6 +23,7 @@ app.include_router(jobs_router)
 app.include_router(companies_router)
 app.include_router(interviews_router)
 app.include_router(tasks_router)
+app.include_router(notes_router)
 
 
 @app.get("/health")
