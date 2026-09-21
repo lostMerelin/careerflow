@@ -7,7 +7,7 @@ from app.api.deps import get_current_user
 from app.core.security import create_access_token, hash_password, verify_password
 from app.db.session import get_db
 from app.models.user import User
-from app.schemas.user import Token, UserCreate, UserRead
+from app.schemas.user import Token, UserCreate, UserRead, UserUpdate
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
@@ -66,4 +66,16 @@ async def login(
 async def read_current_user(
     current_user: User = Depends(get_current_user)
 ):
+    return current_user
+
+@router.patch("/me", response_model=UserRead)
+async def update_curret_user(
+    payload: UserUpdate,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    for field, value in payload.model_dump(exclude_unset=True).items():
+        setattr(current_user, field, value)
+    await db.commit()
+    await db.refresh(current_user)
     return current_user

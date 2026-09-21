@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import String, DateTime, func
+from sqlalchemy import String, Text, DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID
 
@@ -21,6 +21,10 @@ class User(Base):
     first_name: Mapped[str | None] = mapped_column(String(100), nullable=True)
     patronymic: Mapped[str | None] = mapped_column(String(100), nullable=True)
     phone: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    experience: Mapped[str | None ] = mapped_column(Text, nullable=True)
+    github_url: Mapped[str | None ] = mapped_column(String(500), nullable=True)
+    linkedin: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    telegram_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )

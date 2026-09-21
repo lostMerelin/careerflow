@@ -11,6 +11,15 @@ class UserCreate(BaseModel):
     patronymic: str | None = None
     phone: str | None = None
 
+class UserUpdate(BaseModel):
+    last_name: str | None = None
+    first_name: str | None = None
+    patronymic: str | None = None
+    phone: str | None = None
+    experience: str | None = None
+    github_url: str | None = None
+    linkedin_url: str | None = None
+    telegram_url: str | None = None
 
 class UserRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -21,6 +30,10 @@ class UserRead(BaseModel):
     first_name: str | None = None
     patronymic: str | None = None
     phone: str | None = None
+    experience: str | None = None
+    github_url: str | None = None
+    linkedin_url: str | None = None
+    telegram_url: str | None = None
 
     @computed_field
     @property
