@@ -42,8 +42,8 @@ export function Navbar() {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>{user?.full_name ?? user?.email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Профиль</DropdownMenuItem>
-          <DropdownMenuItem>Настройки</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => navigate('/profile')}>Профиль</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => navigate('/settings')}>Настройки</DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={handleLogout}>Выйти</DropdownMenuItem>
         </DropdownMenuContent>

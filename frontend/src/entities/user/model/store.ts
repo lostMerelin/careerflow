@@ -7,6 +7,10 @@ export interface User {
   first_name: string | null
   patronymic: string | null
   phone: string | null
+  experience: string | null
+  github_url: string | null
+  linkedin_url: string | null
+  telegram_url: string | null
   full_name: string
 }
 
