@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import type { ResumeFile } from "@/entities/resume/model/types";
 import { useDeleteResume } from "@/entities/resume/api/queries";
 import { downloadResume } from "@/entities/resume/api/resumeApi";
+import { EmptyState } from '@/shared/ui/EmptyState'
 
 interface ResumeListProps {
     resumes: ResumeFile[]
@@ -19,9 +20,11 @@ export function ResumeList({ resumes }: ResumeListProps) {
 
     if(resumes.length === 0) {
         return (
-            <div className="rounded-lg border p-12 text-center text-muted-foreground">
-                Пока нет загруженных резюме.
-            </div>
+            <EmptyState
+                icon={FileText}
+                title="Пока нет загруженных резюме"
+                description="Загрузите разные версии резюме в PDF и скачивайте нужную в один клик."
+            />
         )
     }
 

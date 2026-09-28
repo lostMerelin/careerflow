@@ -1,6 +1,7 @@
 import { CreateTaskDialog } from '@/features/tasks/create-task/CreateTaskDialog'
 import { TasksList } from '@/widgets/tasks-list/TasksList'
 import { useTasks } from '@/entities/task/api/queries'
+import { ListSkeleton } from '@/shared/ui/skeletons'
 
 export function TasksPage() {
   const { data: tasks, isLoading } = useTasks()
@@ -16,7 +17,7 @@ export function TasksPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <ListSkeleton />
       ) : (
         <TasksList tasks={tasks ?? []} />
       )}

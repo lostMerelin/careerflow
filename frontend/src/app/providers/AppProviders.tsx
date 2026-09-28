@@ -1,13 +1,21 @@
 import type { PropsWithChildren } from 'react'
 import { useEffect } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import axios from 'axios'
+import { QueryClient, QueryClientProvider, QueryCache } from '@tanstack/react-query'
 import { HelmetProvider } from 'react-helmet-async'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import { api } from '@/shared/api/axios'
 import { tokenStorage } from '@/shared/lib/token'
 import { useUserStore } from '@/entities/user/model/store'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error) => {
+      if(axios.isAxiosError(error) && error.response?.status === 401) 
+        return toast.error('Не удалось загрузить данные. Проверьте соединение.', {id: 'query-error'})
+    }
+  })
+})
 
 function AuthBootstrap({ children }: PropsWithChildren) {
   const setUser = useUserStore((state) => state.setUser)

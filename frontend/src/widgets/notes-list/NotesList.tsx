@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import { Trash2 } from 'lucide-react'
+import { Trash2, StickyNote } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { Note } from '@/entities/note/model/types'
 import { useDeleteNote } from '@/entities/note/api/queries'
+import { EmptyState } from '@/shared/ui/EmptyState'
 
 interface NotesListProps {
     notes: Note[]
@@ -13,9 +14,11 @@ export function NotesList({ notes }: NotesListProps) {
 
     if(notes.length === 0) {
         return (
-            <div className="rounded-lg border p-12 text-center text-muted-foreground">
-                Пока нет заметок. Добавьте первую!
-            </div>
+            <EmptyState
+                icon={StickyNote}
+                title="Пока нет заметок"
+                 description="Ведите конспекты по подготовке и итоги собеседований в формате Markdown."
+            />
         )
     }
 

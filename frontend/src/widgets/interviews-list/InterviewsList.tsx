@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import type { Interview } from '@/entities/interview/model/types'
 import { stageLabels, resultLabels } from '@/entities/interview/config/labels'
 import { useDeleteInterview } from '@/entities/interview/api/queries'
+import { EmptyState } from '@/shared/ui/EmptyState'
 
 interface InterviewsListProps {
   interviews: Interview[]
@@ -13,10 +14,12 @@ export function InterviewsList({ interviews }: InterviewsListProps) {
   const deleteInterview = useDeleteInterview()
 
   if (interviews.length === 0) {
-    return (
-      <div className="rounded-lg border p-12 text-center text-muted-foreground">
-        Пока нет запланированных собеседований.
-      </div>
+  return (
+    <EmptyState
+      icon={CalendarClock}
+      title="Нет запланированных собеседований"
+      description="Когда вас пригласят на собеседование, добавьте его сюда, чтобы не пропустить."
+    />
     )
   }
 

@@ -1,6 +1,7 @@
 import { CreateInterviewDialog } from '@/features/interviews/create-interview/CreateInterviewDialog'
 import { InterviewsList } from '@/widgets/interviews-list/InterviewsList'
 import { useInterviews } from '@/entities/interview/api/queries'
+import { ListSkeleton } from '@/shared/ui/skeletons'
 
 export function InterviewsPage() {
   const { data: interviews, isLoading } = useInterviews()
@@ -16,7 +17,7 @@ export function InterviewsPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <ListSkeleton />
       ) : (
         <InterviewsList interviews={interviews ?? []} />
       )}

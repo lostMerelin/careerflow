@@ -7,6 +7,7 @@ import { StatsCards } from "@/widgets/analytics/StatsCards";
 import { ApplicaitonsTrendChart } from "@/widgets/analytics/ApplicationsTrendChart";
 import { UpComingInterviews } from "@/widgets/dashboard/UpcomingInterviews";
 import { RecentActivity } from "@/widgets/dashboard/RecentActivity";
+import { PageSkeleton } from "@/shared/ui/skeletons";
 
 function getGreeting(): string {
   const hour = new Date().getHours()
@@ -24,7 +25,7 @@ export function DashboardPage() {
   const { data: notes } = useNotes()
 
   if(jobsLoading || interviewsLoading) {
-    return <p className="text-muted-foreground">Загрузка...</p>
+    return <PageSkeleton />
   }
 
   const jobsData = jobs ?? []

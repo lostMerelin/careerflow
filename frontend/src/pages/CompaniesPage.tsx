@@ -1,6 +1,7 @@
 import { CreateCompanyDialog } from '@/features/companies/create-company/CreateCompanyDialog'
 import { CompaniesList } from '@/widgets/companies-list/CompaniesList'
 import { useCompanies } from '@/entities/company/api/queries'
+import { CardGridSkeleton } from '@/shared/ui/skeletons'
 
 export function CompaniesPage() {
   const { data: companies, isLoading } = useCompanies()
@@ -16,7 +17,7 @@ export function CompaniesPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <CardGridSkeleton />
       ) : (
         <CompaniesList companies={companies ?? []} />
       )}

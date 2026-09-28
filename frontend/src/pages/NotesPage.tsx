@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { NotesList } from '@/widgets/notes-list/NotesList'
 import { useCreateNote, useNotes } from '@/entities/note/api/queries'
+import { CardGridSkeleton } from '@/shared/ui/skeletons'
 
 export function NotesPage() {
     const navigate = useNavigate()
@@ -32,7 +33,7 @@ export function NotesPage() {
                 </Button>
             </div>
             {isLoading ? (
-                <p className="text-muted-foreground">Загрузка...</p>
+                <CardGridSkeleton />
             ) : (
                 <NotesList notes={notes ?? []} />
             )}

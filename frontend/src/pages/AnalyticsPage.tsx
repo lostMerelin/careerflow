@@ -4,13 +4,14 @@ import { StatsCards } from "@/widgets/analytics/StatsCards";
 import { StatusFunnelChart } from "@/widgets/analytics/StatusFunnelChart";
 import { ApplicaitonsTrendChart } from "@/widgets/analytics/ApplicationsTrendChart";
 import { InterviewResultChart } from "@/widgets/analytics/InterviewResultsChart";
+import { PageSkeleton } from "@/shared/ui/skeletons";
 
 export function AnalyticsPage(){
   const { data: jobs, isLoading: jobsLoading } = useJobs()
   const { data: interviews, isLoading: interviewsLoading } = useInterviews()
 
   if(jobsLoading || interviewsLoading) {
-    return <p className="text-muted-foreground">Загрузка...</p>
+    return <PageSkeleton />
   }
 
   const jobsData = jobs ?? []

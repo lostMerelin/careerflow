@@ -1,6 +1,7 @@
 import { UploadResumeDialog } from "@/features/resume/upload-resume/UploadResumeDialog";
 import { ResumeList } from "@/widgets/resume-list/ResumeList";
 import { useResumes } from "@/entities/resume/api/queries";
+import { ListSkeleton } from "@/shared/ui/skeletons";
 
 export function ResumePage() {
   const { data: resumes, isLoading } = useResumes()
@@ -16,7 +17,7 @@ export function ResumePage() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <ListSkeleton />
       ) : (
         <ResumeList resumes={resumes ?? []} />
       )}

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { Copy, Trash2 } from "lucide-react";
+import { Copy, Trash2, Mail } from "lucide-react";
 import { Badge } from "@/components/ui/badge"; 
 import { Button } from "@/components/ui/button";
 import type { CoverLetter } from "@/entities/cover-letter/model/types";
 import { useDeleteCoverLetter } from "@/entities/cover-letter/api/queries";
+import { EmptyState } from '@/shared/ui/EmptyState'
 
 interface CoverLettersListProps {
     coverLetters: CoverLetter[]
@@ -21,9 +22,11 @@ export function CoverLettersList({ coverLetters }: CoverLettersListProps) {
 
     if (coverLetters.length === 0) {
         return (
-            <div className="rounded-lg border p-12 text-center text-muted-foreground">
-                Пока нет шаблонов. Создайте первый!
-            </div>
+            <EmptyState
+                icon={Mail}
+                title="Пока нет шаблонов"
+                description="Создайте шаблоны сопроводительных писем и копируйте их одним кликом при отклике."
+            />
         )
     }
 

@@ -4,6 +4,7 @@ import { JobsTable } from '@/widgets/jobs-table/JobsTable'
 import { KanbanBoard } from '@/widgets/jobs-kanban/KanbanBoard'
 import { useJobs } from '@/entities/job/api/queries'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { ListSkeleton } from '@/shared/ui/skeletons'
 
 export function JobsPage() {
   const { data: jobs, isLoading } = useJobs()
@@ -28,7 +29,7 @@ export function JobsPage() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <ListSkeleton />
       ) : view === 'table' ? (
         <JobsTable jobs={jobs ?? []} />
       ) : (

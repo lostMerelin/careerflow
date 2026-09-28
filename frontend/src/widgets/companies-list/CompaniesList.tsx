@@ -2,6 +2,7 @@ import { Building2, Globe, Mail, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { Company } from '@/entities/company/model/types'
 import { useDeleteCompany } from '@/entities/company/api/queries'
+import { EmptyState } from '@/shared/ui/EmptyState'
 
 interface CompaniesListProps {
   companies: Company[]
@@ -10,11 +11,13 @@ interface CompaniesListProps {
 export function CompaniesList({ companies }: CompaniesListProps) {
   const deleteCompany = useDeleteCompany()
 
-  if (companies.length === 0) {
-    return (
-      <div className="rounded-lg border p-12 text-center text-muted-foreground">
-        No companies yet. Add your first one!
-      </div>
+ if (companies.length === 0) {
+  return (
+    <EmptyState
+      icon={Building2}
+      title="Пока нет компаний"
+      description="Добавьте компании, в которые хотите попасть, и храните контакты HR в одном месте."
+    />
     )
   }
 

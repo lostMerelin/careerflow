@@ -1,10 +1,12 @@
-import { Trash2 } from 'lucide-react'
+import { Trash2, CheckSquare } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { Task } from '@/entities/task/model/types'
 import { priorityConfig } from '@/entities/task/config/priorityConfig'
 import { useUpdateTask, useDeleteTask } from '@/entities/task/api/queries'
+import { EmptyState } from '@/shared/ui/EmptyState'
+
 
 interface TaskListProps {
     tasks: Task[]
@@ -14,13 +16,15 @@ export function TasksList({ tasks }: TaskListProps) {
     const updateTask = useUpdateTask()
     const deleteTask = useDeleteTask()
 
-    if(tasks.length === 0) {
-        return (
-            <div className="rounded-lg border p-12 text-center text-muted-foreground">
-                Пока нет задач. Добавьте первую!
-            </div>
-        )
-    }
+    if (tasks.length === 0) {
+  return (
+      <EmptyState
+      icon={CheckSquare}
+      title="Пока нет задач"
+      description="Запишите, что нужно подготовить: тестовое, резюме, темы для повторения."
+      />
+    )
+  }
 
     return (
     <div className="space-y-2">

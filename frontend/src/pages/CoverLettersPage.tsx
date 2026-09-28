@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { CoverLettersList } from "@/widgets/cover-letters-list/CoverLettersList";
 import { useCoverLetters, useCreateCoverLetter } from "@/entities/cover-letter/api/queries";
+import { CardGridSkeleton } from "@/shared/ui/skeletons";
 
 export function CoverLettersPage () {
   const navigate = useNavigate()
@@ -33,7 +34,7 @@ export function CoverLettersPage () {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Загрузка...</p>
+        <CardGridSkeleton />
       ) : (
         <CoverLettersList coverLetters={coverLetters ?? []} />
       )}
