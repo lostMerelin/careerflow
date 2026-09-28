@@ -9,6 +9,7 @@ import { CompaniesPage } from '@/pages/CompaniesPage'
 import { InterviewsPage } from '@/pages/InterviewsPage'
 import { ResumePage } from '@/pages/ResumePage'
 import { CoverLettersPage } from '@/pages/CoverLettersPage'
+import { CoverLetterEditorPage } from '@/pages/CoverLetterEditorPage'
 import { TasksPage } from '@/pages/TasksPage'
 import { CalendarPage } from '@/pages/CalendarPage'
 import { AnalyticsPage } from '@/pages/AnalyticsPage'
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
           { path: 'interviews', element: <InterviewsPage /> },
           { path: 'resume', element: <ResumePage /> },
           { path: 'cover-letters', element: <CoverLettersPage /> },
+          { path: 'cover-letters/:id', element: <CoverLetterEditorPage /> },
           { path: 'tasks', element: <TasksPage /> },
           { path: 'calendar', element: <CalendarPage /> },
           { path: 'analytics', element: <AnalyticsPage /> },
